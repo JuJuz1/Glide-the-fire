@@ -6,7 +6,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ke3jv"]
 height = 22.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_t1bgp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -17,3 +17,7 @@ shape = SubResource("CapsuleShape2D_ke3jv")
 position = Vector2(0, 7.45058e-09)
 scale = Vector2(0.142578, 0.111328)
 texture = ExtResource("1_yao38")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+position_smoothing_speed = 3.0
