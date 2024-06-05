@@ -37,6 +37,10 @@ func _physics_process(delta):
 	if Input.is_action_pressed("interact") and not is_on_floor() and velocity.y > 0:
 		velocity.y = GRAVITY_GLIDE * delta
 	
+	# Check if player is stuck
+	if velocity.x == 0:
+		animation.stop()
+	
 	# Constant movement to the right
 	velocity.x = SPEED * delta
 	
