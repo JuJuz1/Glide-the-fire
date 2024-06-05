@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 ## Speed
-const SPEED = 75.0
+const SPEED = 8000.0
 ## Jump height and scale for the gravity
 const JUMP_VELOCITY = -300.0
 const GRAVITY_SCALE = 0.8
@@ -39,6 +39,5 @@ func _physics_process(delta):
 	
 	# Constant movement to the right
 	velocity.x = SPEED * delta
-	velocity.x = move_toward(velocity.x, SPEED, SPEED)
 	
 	move_and_slide()
