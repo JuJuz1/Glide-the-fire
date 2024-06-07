@@ -13,21 +13,19 @@ size = Vector2(135, 20)
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = -53.0
-offset_top = -90.0
-offset_right = 104.0
-offset_bottom = -65.0
+offset_left = -128.0
+offset_top = -167.0
+offset_right = 260.0
+offset_bottom = 73.0
 script = ExtResource("1_7gref")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="UI"]
 
 [node name="Start" type="RichTextLabel" parent="UI"]
 auto_translate_mode = 1
 layout_mode = 0
-offset_left = 56.0
-offset_top = -6.0
-offset_right = 216.0
-offset_bottom = 22.0
+offset_left = 99.0
+offset_top = 77.0
+offset_right = 259.0
+offset_bottom = 105.0
 pivot_offset = Vector2(80, 14)
 text = "Press space to start"
 

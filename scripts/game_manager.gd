@@ -1,6 +1,6 @@
 extends Node
 
-## UI node
+## UI node and player
 var interface = null
 var player = null
 
@@ -15,10 +15,13 @@ func _ready():
 
 # Check for input
 func _input(_event):
-	if Input.is_action_just_pressed("pause"):
+	# PC escape
+	if Input.is_action_just_pressed("pause") and player.process_mode == Node.PROCESS_MODE_INHERIT:
 		get_tree().paused = not get_tree().paused
 		#get_tree().reload_current_scene()
+	
 	# Starting the game
+	# PC space
 	if Input.is_action_just_pressed("interact"):
 		if player.process_mode == Node.PROCESS_MODE_DISABLED:
 			player.process_mode = Node.PROCESS_MODE_INHERIT

@@ -2,10 +2,13 @@
 
 extends Control
 
+## Pause menu panel
+#var pause_menu : Control = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	#pause_menu = get_node("Pause_menu")
+	pass
 
 
 # Remove start label vanishing it slowly
