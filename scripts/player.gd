@@ -1,25 +1,30 @@
 ## Player character
-
 extends CharacterBody2D
+class_name Player
 
 ## Speed
-const SPEED = 8000.0
+const SPEED : int = 8000
 ## Jump height and scale for the gravity
-const JUMP_VELOCITY = -300.0
-const GRAVITY_SCALE = 0.8
+const JUMP_VELOCITY : int = -300
+const GRAVITY_SCALE : float = 0.8
 ## Constant gravity when gliding
-const GRAVITY_GLIDE = 3000.0
+const GRAVITY_GLIDE : int = 3000
 
-@onready var animation = $AnimatedSprite2D
+@onready var animation : AnimatedSprite2D = $AnimatedSprite2D
 
+var starting_position : Vector2 = Vector2(0, 0)
+var gliding : bool = false
 
 func _ready():
 	#animation.flip_h = true
+	starting_position = self.global_position
 	pass
 
 
 ## Movement processing
 func _physics_process(delta):
+	gliding = false
+	
 	# Add the gravity
 	if not is_on_floor():
 		velocity.y += get_gravity().y * delta * GRAVITY_SCALE
@@ -41,6 +46,7 @@ func _physics_process(delta):
 	# Gliding
 	if Input.is_action_pressed("interact") and not is_on_floor() and velocity.y > 0:
 		velocity.y = GRAVITY_GLIDE * delta
+		gliding = true
 	
 	# Check if player is stuck
 	if velocity.x == 0:

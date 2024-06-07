@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4bggrhla46rv"]
+
+[ext_resource type="Script" path="res://scenes/bush.gd" id="1_o6qok"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bigwh"]
+radius = 24.0
+height = 56.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ow7p"]
+radius = 18.0
+height = 58.0
+
+[node name="Bush" type="Node2D"]
+script = ExtResource("1_o6qok")
+
+[node name="Area2DBush" type="Area2D" parent="."]
+position = Vector2(6, -6)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionBush" type="CollisionShape2D" parent="Area2DBush" groups=["collision"]]
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_bigwh")
+
+[node name="Area2DGlide" type="Area2D" parent="."]
+position = Vector2(7, -119)
+
+[node name="CollisionGlide" type="CollisionShape2D" parent="Area2DGlide" groups=["collision"]]
+scale = Vector2(1.18482, 1.18482)
+shape = SubResource("CapsuleShape2D_6ow7p")
+
+[connection signal="body_entered" from="Area2DBush" to="." method="_on_area_2d_bush_body_entered"]
+[connection signal="body_entered" from="Area2DGlide" to="." method="_on_area_2d_glide_body_entered"]

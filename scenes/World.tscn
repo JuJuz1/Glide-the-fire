@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjdhlac7dut2t"]
+[gd_scene load_steps=6 format=3 uid="uid://bjdhlac7dut2t"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_7gref"]
 [ext_resource type="PackedScene" uid="uid://4oxacnipp3cb" path="res://scenes/player.tscn" id="1_e68gs"]
 [ext_resource type="Texture2D" uid="uid://cflafbysfr30m" path="res://graphics/icon.svg" id="2_cfnnw"]
+[ext_resource type="PackedScene" uid="uid://c4bggrhla46rv" path="res://scenes/bush.tscn" id="4_n8bdv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4pkku"]
 size = Vector2(135, 20)
@@ -10,7 +11,6 @@ size = Vector2(135, 20)
 [node name="World" type="Node2D"]
 
 [node name="UI" type="Control" parent="."]
-unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
 offset_left = -128.0
@@ -30,7 +30,6 @@ pivot_offset = Vector2(80, 14)
 text = "Press space to start"
 
 [node name="Player" parent="." instance=ExtResource("1_e68gs")]
-unique_name_in_owner = true
 process_mode = 4
 position = Vector2(-12, -41)
 
@@ -63,3 +62,6 @@ texture = ExtResource("2_cfnnw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 shape = SubResource("RectangleShape2D_4pkku")
+
+[node name="Bush" parent="." instance=ExtResource("4_n8bdv")]
+position = Vector2(155, -16)
