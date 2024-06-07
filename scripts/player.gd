@@ -68,6 +68,7 @@ func _physics_process(delta):
 
 ## Timer for accumulating upwards acceleration during gliding over bush
 ## ATM 0.05, working fine
+## Going lower might cause issues depenging on the frame rate etc.
 func _on_timer_timeout():
 	# Hard to implement checking for gliding, very minor detail nonetheless
 	#if gliding:
