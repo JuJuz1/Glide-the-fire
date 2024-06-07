@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjdhlac7dut2t"]
+[gd_scene load_steps=5 format=3 uid="uid://bjdhlac7dut2t"]
 
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_7gref"]
 [ext_resource type="PackedScene" uid="uid://4oxacnipp3cb" path="res://scenes/player.tscn" id="1_e68gs"]
 [ext_resource type="Texture2D" uid="uid://cflafbysfr30m" path="res://graphics/icon.svg" id="2_cfnnw"]
 
@@ -8,7 +9,31 @@ size = Vector2(135, 20)
 
 [node name="World" type="Node2D"]
 
+[node name="UI" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -53.0
+offset_top = -90.0
+offset_right = 104.0
+offset_bottom = -65.0
+script = ExtResource("1_7gref")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="UI"]
+
+[node name="Start" type="RichTextLabel" parent="UI"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 56.0
+offset_top = -6.0
+offset_right = 216.0
+offset_bottom = 22.0
+pivot_offset = Vector2(80, 14)
+text = "Press space to start"
+
 [node name="Player" parent="." instance=ExtResource("1_e68gs")]
+unique_name_in_owner = true
+process_mode = 4
 position = Vector2(-12, -41)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

@@ -1,3 +1,5 @@
+## Player character
+
 extends CharacterBody2D
 
 ## Speed
@@ -5,7 +7,7 @@ const SPEED = 8000.0
 ## Jump height and scale for the gravity
 const JUMP_VELOCITY = -300.0
 const GRAVITY_SCALE = 0.8
-## Constant gravity when gliding, has to be quite large due to multiplying with delta
+## Constant gravity when gliding
 const GRAVITY_GLIDE = 3000.0
 
 @onready var animation = $AnimatedSprite2D
@@ -24,13 +26,16 @@ func _physics_process(delta):
 	
 	if is_on_floor():
 		animation.play("run")
-		animation.rotation = 0
+		#animation.rotation = 0
 	
 	# Jumping
 	if Input.is_action_just_pressed("interact") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		animation.stop()
 		animation.play("jump")
+		var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(animation, "scale", Vector2(1, 0.9), 0.05)
+		tween.tween_property(animation, "scale", Vector2(1, 1), 0.05)
 		#animation.rotate(PI / 20)
 	
 	# Gliding
