@@ -34,7 +34,6 @@ func _input(_event):
 
 ## When the player dies
 func _on_player_death():
-	print_debug("manager_signal")
 	# Position the player to the starting position and initialize all pickables, reset picked up items
 	player.position = player.starting_position
 	player.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)

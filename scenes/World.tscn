@@ -64,3 +64,6 @@ shape = SubResource("RectangleShape2D_4pkku")
 
 [node name="Bush" parent="." instance=ExtResource("4_t4mfl")]
 position = Vector2(154, -12)
+
+[connection signal="bush_entered" from="Bush" to="Player" method="_on_bush_entered"]
+[connection signal="bush_exited" from="Bush" to="Player" method="_on_bush_exited"]
