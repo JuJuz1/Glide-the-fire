@@ -34,6 +34,8 @@ func _input(_event):
 	# Restarting
 	# PC R
 	if Input.is_action_just_pressed("restart"):
+		if get_tree().paused:
+			return
 		_on_player_death()
 
 
@@ -43,8 +45,3 @@ func _on_player_death():
 	player.position = player.starting_position
 	player.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 	interface.initialize_start()
-
-
-func _process(_delta):
-	#print(str(player.process_mode))
-	pass
