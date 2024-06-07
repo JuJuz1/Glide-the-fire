@@ -1,33 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4bggrhla46rv"]
+[gd_scene load_steps=4 format=3 uid="uid://evi5ejkwf4me"]
 
-[ext_resource type="Script" path="res://scenes/bush.gd" id="1_o6qok"]
+[ext_resource type="Script" path="res://scripts/bush.gd" id="1_510l3"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bigwh"]
-radius = 24.0
-height = 56.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hlqm4"]
+radius = 33.0
+height = 78.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ow7p"]
-radius = 18.0
-height = 58.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p1axl"]
+radius = 28.0
+height = 66.0
 
 [node name="Bush" type="Node2D"]
-script = ExtResource("1_o6qok")
+position = Vector2(120, -33)
+script = ExtResource("1_510l3")
 
 [node name="Area2DBush" type="Area2D" parent="."]
-position = Vector2(6, -6)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionBush" type="CollisionShape2D" parent="Area2DBush" groups=["collision"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DBush"]
 rotation = 1.57079
-shape = SubResource("CapsuleShape2D_bigwh")
+shape = SubResource("CapsuleShape2D_hlqm4")
 
 [node name="Area2DGlide" type="Area2D" parent="."]
-position = Vector2(7, -119)
+position = Vector2(0, -57)
+collision_layer = 0
+collision_mask = 2
 
-[node name="CollisionGlide" type="CollisionShape2D" parent="Area2DGlide" groups=["collision"]]
-scale = Vector2(1.18482, 1.18482)
-shape = SubResource("CapsuleShape2D_6ow7p")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DGlide"]
+shape = SubResource("CapsuleShape2D_p1axl")
 
-[connection signal="body_entered" from="Area2DBush" to="." method="_on_area_2d_bush_body_entered"]
-[connection signal="body_entered" from="Area2DGlide" to="." method="_on_area_2d_glide_body_entered"]
+[connection signal="body_entered" from="Area2DBush" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2DGlide" to="." method="_on_area_2d_2_body_entered"]

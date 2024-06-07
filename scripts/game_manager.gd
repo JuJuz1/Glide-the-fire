@@ -23,20 +23,21 @@ func _input(_event):
 	# PC space
 	if Input.is_action_just_pressed("interact"):
 		if player.process_mode == Node.PROCESS_MODE_DISABLED:
-			player.process_mode = Node.PROCESS_MODE_INHERIT
+			player.set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
 			interface.remove_start()
+			# Enable player collision after respawning
+			# Had some problems with area2D detecting collision twice
+			# Probably linked to the continouos movement and code execution happening after 1 frame after entering
+			await get_tree().create_timer(0.1).timeout
+			player.set_collision_layer_value(2, true)
 
 
 ## When the player dies
 func _on_player_death():
-	# Position the player to the starting position and initialize all pickables, reset picked up items and collisionshapes
-	#get_tree().call_group("collision", set_collision_true) for a better solution later
-	var collisions = get_tree().get_nodes_in_group("collision")
-	for collisionshape in collisions:
-		collisionshape.set_deferred("disabled", false)
-	
+	print_debug("manager_signal")
+	# Position the player to the starting position and initialize all pickables, reset picked up items
 	player.position = player.starting_position
-	player.process_mode = Node.PROCESS_MODE_DISABLED
+	player.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 	interface.initialize_start()
 
 

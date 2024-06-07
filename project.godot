@@ -28,10 +28,6 @@ window/size/viewport_width=960
 window/size/viewport_height=540
 window/stretch/scale_mode="integer"
 
-[global_group]
-
-collision="All collisionshapes that need to be initialized when respawning"
-
 [input]
 
 interact={
