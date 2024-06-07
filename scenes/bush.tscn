@@ -7,8 +7,8 @@ radius = 33.0
 height = 78.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p1axl"]
-radius = 24.0
-height = 56.0
+radius = 28.0
+height = 116.0
 
 [node name="Bush" type="Node2D"]
 position = Vector2(120, -33)
@@ -28,7 +28,6 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DGlide"]
-rotation = 1.57079
 shape = SubResource("CapsuleShape2D_p1axl")
 
 [connection signal="body_entered" from="Area2DFire" to="." method="_on_area_2d_fire_body_entered"]

@@ -84,3 +84,8 @@ position = Vector2(-1, -7)
 sprite_frames = SubResource("SpriteFrames_hxjxp")
 animation = &"jump"
 frame_progress = 0.670301
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

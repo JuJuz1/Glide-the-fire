@@ -36,16 +36,20 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("interact") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		animation.stop()
-		animation.play("jump")
+		animation.play("jump")    
 		var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 		tween.tween_property(animation, "scale", Vector2(1, 0.9), 0.05)
 		tween.tween_property(animation, "scale", Vector2(1, 1), 0.05)
 		#animation.rotate(PI / 20)
+		get_viewport().set_input_as_handled()
 	
 	# Gliding
 	if Input.is_action_pressed("interact") and not is_on_floor() and velocity.y > 0:
 		if in_bush:
-			velocity.y += -500.0
+			if $Timer.is_stopped():
+				$Timer.start()
+			#velocity.y += -500
+			print(str(Engine.get_process_frames()))
 		else:
 			velocity.y = GRAVITY_GLIDE * delta
 	
@@ -66,4 +70,9 @@ func _on_bush_entered():
 
 func _on_bush_exited():
 	in_bush = false
+	$Timer.stop()
 	print("exit")
+
+
+func _on_timer_timeout():
+	velocity.y += -100

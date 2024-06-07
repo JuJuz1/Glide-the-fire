@@ -14,13 +14,13 @@ func _ready():
 
 ## Check for input
 func _input(_event):
-	# PC escape
+	# PC ESCAPE
 	if Input.is_action_just_pressed("pause") and player.process_mode == Node.PROCESS_MODE_INHERIT:
 		get_tree().paused = not get_tree().paused
 		#get_tree().reload_current_scene()
 	
 	# Starting the game
-	# PC space
+	# PC SPACE
 	if Input.is_action_just_pressed("interact"):
 		if player.process_mode == Node.PROCESS_MODE_DISABLED:
 			player.set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
@@ -30,6 +30,11 @@ func _input(_event):
 			# Probably linked to the continouos movement and code execution happening after 1 frame after entering
 			await get_tree().create_timer(0.1).timeout
 			player.set_collision_layer_value(2, true)
+	
+	# Restarting
+	# PC R
+	if Input.is_action_just_pressed("restart"):
+		_on_player_death()
 
 
 ## When the player dies

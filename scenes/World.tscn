@@ -1,12 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjdhlac7dut2t"]
+[gd_scene load_steps=5 format=3 uid="uid://bjdhlac7dut2t"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_7gref"]
 [ext_resource type="PackedScene" uid="uid://4oxacnipp3cb" path="res://scenes/player.tscn" id="1_e68gs"]
-[ext_resource type="Texture2D" uid="uid://cflafbysfr30m" path="res://graphics/icon.svg" id="2_cfnnw"]
+[ext_resource type="PackedScene" uid="uid://c0km2r24rbat8" path="res://scenes/floor_test.tscn" id="3_lh3f7"]
 [ext_resource type="PackedScene" uid="uid://evi5ejkwf4me" path="res://scenes/bush.tscn" id="4_t4mfl"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pkku"]
-size = Vector2(135, 20)
 
 [node name="World" type="Node2D"]
 
@@ -32,38 +29,19 @@ text = "Press space to start"
 [node name="Player" parent="." instance=ExtResource("1_e68gs")]
 position = Vector2(-12, -35)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(17, -8)
+[node name="StaticBody2D" parent="." instance=ExtResource("3_lh3f7")]
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-scale = Vector2(1.05434, 0.166487)
-texture = ExtResource("2_cfnnw")
+[node name="StaticBody2D2" parent="." instance=ExtResource("3_lh3f7")]
+position = Vector2(139, 15)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_4pkku")
+[node name="StaticBody2D3" parent="." instance=ExtResource("3_lh3f7")]
+position = Vector2(224, -20)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(147, 2)
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
-scale = Vector2(1.05434, 0.166487)
-texture = ExtResource("2_cfnnw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-shape = SubResource("RectangleShape2D_4pkku")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(248, -24)
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
-scale = Vector2(1.05434, 0.166487)
-texture = ExtResource("2_cfnnw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-shape = SubResource("RectangleShape2D_4pkku")
+[node name="StaticBody2D4" parent="." instance=ExtResource("3_lh3f7")]
+position = Vector2(355, -6)
 
 [node name="Bush" parent="." instance=ExtResource("4_t4mfl")]
-position = Vector2(154, -12)
+position = Vector2(369, -21)
 
 [connection signal="bush_entered" from="Bush" to="Player" method="_on_bush_entered"]
 [connection signal="bush_exited" from="Bush" to="Player" method="_on_bush_exited"]
