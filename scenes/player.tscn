@@ -96,7 +96,6 @@ not needed"
 position = Vector2(-1, -7)
 sprite_frames = SubResource("SpriteFrames_hxjxp")
 animation = &"run"
-frame_progress = 0.688802
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05
