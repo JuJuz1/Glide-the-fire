@@ -26,13 +26,9 @@ func _ready():
 
 ## Movement processing
 func _physics_process(delta):
-	# Add the gravity
-	if not is_on_floor():
-		velocity.y += get_gravity().y * delta * GRAVITY_SCALE
-	
 	if is_on_floor():
 		animation.play("run")
-		#animation.rotation = 0
+		animation.rotation = 0
 	
 	# Jumping
 	if Input.is_action_just_pressed("interact") and is_on_floor():
@@ -42,12 +38,15 @@ func _physics_process(delta):
 		var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 		tween.tween_property(animation, "scale", Vector2(1, 0.9), 0.05)
 		tween.tween_property(animation, "scale", Vector2(1, 1), 0.05)
-		#animation.rotate(PI / 20)
+		animation.rotate(-PI / 20)
 		# To not confuse with gliding
 		get_viewport().set_input_as_handled()
 	
 	# Gliding
 	if Input.is_action_pressed("interact") and not is_on_floor() and velocity.y > 0:
+		animation.rotation = 0
+		animation.stop()
+		animation.play("glide")
 		#gliding = true
 		if in_bush:
 			if $Timer.is_stopped():
@@ -55,6 +54,9 @@ func _physics_process(delta):
 			#velocity.y += -500
 		else:
 			velocity.y = GRAVITY_GLIDE * delta
+	elif not is_on_floor(): # Add normal gravity and animation to jump
+		velocity.y += get_gravity().y * delta * GRAVITY_SCALE
+		animation.play("jump")
 	
 	# Check if player is stuck
 	if velocity.x == 0:
