@@ -75,6 +75,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+process_mode = 4
 collision_layer = 2
 script = ExtResource("1_t1bgp")
 
@@ -94,7 +95,8 @@ copyright/attribution notice:
 not needed"
 position = Vector2(-1, -7)
 sprite_frames = SubResource("SpriteFrames_hxjxp")
-animation = &"glide"
+animation = &"run"
+frame_progress = 0.688802
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05
