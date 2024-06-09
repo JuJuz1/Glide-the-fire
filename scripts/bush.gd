@@ -16,8 +16,6 @@ func _on_area_2d_fire_body_entered(body):
 		# Disable player collision to avoid double collision
 		body.set_collision_layer_value(2, false)
 		player_death.emit()
-	else:
-		return
 
 
 func _on_area_2d_glide_body_entered(body):

@@ -5,7 +5,7 @@ class_name Player
 signal player_death
 
 ## Speed
-const SPEED : int = 8000
+const SPEED : int = 7000
 ## Jump height and scale for the gravity
 const JUMP_VELOCITY : int = -300
 const GRAVITY_SCALE : float = 0.8
@@ -29,7 +29,6 @@ func _ready():
 	#animation.flip_h = true
 	starting_position = self.global_position
 	player_death.connect(GameManager._on_player_death)
-	pass
 
 
 ## Movement processing
@@ -100,3 +99,7 @@ func _on_bush_exited():
 	in_bush = false
 	$Timer.stop()
 	print("exit")
+
+
+func _on_leaf_body_entered(body):
+	pass # Replace with function body.
