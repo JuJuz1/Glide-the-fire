@@ -25,6 +25,12 @@ var starting_position : Vector2 = Vector2(0, 0)
 var in_bush : bool = false
 #var gliding : bool = false
 
+## Picked up items
+var leafs : int = 0
+var twigs : int = 0
+var pine_cones : int = 0
+
+
 func _ready():
 	#animation.flip_h = true
 	starting_position = self.global_position
@@ -66,12 +72,12 @@ func _physics_process(delta):
 	if velocity.x == 0:
 		stopped += delta
 		if stopped > time_death:
+			print(stopped)
 			player_death.emit()
 		animation.stop()
 	else:
 		stopped = 0.0
 	
-	print(stopped)
 	# Constant movement to the right
 	velocity.x = SPEED * delta
 	
@@ -101,5 +107,18 @@ func _on_bush_exited():
 	print("exit")
 
 
-func _on_leaf_body_entered(body):
-	pass # Replace with function body.
+## When any item is picked up
+func _on_item_picked_up(_name : String):
+	print(_name)
+	match _name:
+		"Leaf":
+			leafs += 1
+			print("Leafs: " + str(leafs))
+		"Twig":
+			twigs += 1
+			print("Twigs: " + str(twigs))
+		"Pine_cone":
+			pine_cones += 1
+			print("Pine_cones: " + str(pine_cones))
+		_:
+			print("Null item")

@@ -1,9 +1,11 @@
 extends Node2D
 
+## Signals
 signal player_death
 
 signal bush_entered
 signal bush_exited
+
 
 # Called when the node enters the scene tree for the first time.
 # Connect signal to game_manager script (autoload)

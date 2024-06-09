@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bl4imgkf7t18r"]
+[gd_scene load_steps=7 format=3 uid="uid://n35s88snil3y"]
 
-[ext_resource type="Script" path="res://scripts/pickable.gd" id="1_ugqtg"]
-[ext_resource type="Texture2D" uid="uid://bp3fbsxd1xvgc" path="res://graphics/leaf.png" id="1_yogh6"]
+[ext_resource type="Texture2D" uid="uid://bxtrswt3hufyn" path="res://graphics/twig.png" id="1_8etji"]
+[ext_resource type="Script" path="res://scripts/pickable.gd" id="1_a0es1"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rtnk1"]
-radius = 7.00042
+[sub_resource type="CircleShape2D" id="CircleShape2D_80llm"]
+radius = 7.0
 
 [sub_resource type="Animation" id="Animation_lytsq"]
 length = 0.001
@@ -45,17 +45,16 @@ _data = {
 "hover": SubResource("Animation_6uc0n")
 }
 
-[node name="Leaf" type="Area2D"]
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("1_ugqtg")
+[node name="Twig" type="Area2D"]
+script = ExtResource("1_a0es1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_rtnk1")
+shape = SubResource("CircleShape2D_80llm")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-texture = ExtResource("1_yogh6")
+texture = ExtResource("1_8etji")
+flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

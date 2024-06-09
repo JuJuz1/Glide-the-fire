@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjdhlac7dut2t"]
+[gd_scene load_steps=9 format=3 uid="uid://bjdhlac7dut2t"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_7gref"]
 [ext_resource type="PackedScene" uid="uid://4oxacnipp3cb" path="res://scenes/player.tscn" id="1_e68gs"]
 [ext_resource type="Texture2D" uid="uid://deyp508ytpruh" path="res://graphics/Tiles.png" id="3_imdec"]
 [ext_resource type="PackedScene" uid="uid://evi5ejkwf4me" path="res://scenes/bush.tscn" id="4_t4mfl"]
 [ext_resource type="PackedScene" uid="uid://bl4imgkf7t18r" path="res://scenes/leaf.tscn" id="5_6tiob"]
+[ext_resource type="PackedScene" uid="uid://n35s88snil3y" path="res://scenes/twig.tscn" id="6_mmmqy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d08yf"]
 texture = ExtResource("3_imdec")
@@ -1470,9 +1471,19 @@ layer_2/tile_data = PackedInt32Array()
 [node name="Bush" parent="." instance=ExtResource("4_t4mfl")]
 position = Vector2(414, -40)
 
-[node name="Leaf" parent="." instance=ExtResource("5_6tiob")]
+[node name="Items" type="Node" parent="."]
+
+[node name="Leaf" parent="Items" instance=ExtResource("5_6tiob")]
 position = Vector2(279, -92)
+
+[node name="Twig" parent="Items" instance=ExtResource("6_mmmqy")]
+position = Vector2(171, -45)
+collision_layer = 0
+collision_mask = 2
 
 [connection signal="bush_entered" from="Bush" to="Player" method="_on_bush_entered"]
 [connection signal="bush_exited" from="Bush" to="Player" method="_on_bush_exited"]
-[connection signal="body_entered" from="Leaf" to="Player" method="_on_leaf_body_entered"]
+[connection signal="body_entered" from="Items/Leaf" to="Items/Leaf" method="_on_body_entered"]
+[connection signal="picked_up" from="Items/Leaf" to="Player" method="_on_item_picked_up"]
+[connection signal="body_entered" from="Items/Twig" to="Items/Twig" method="_on_body_entered"]
+[connection signal="picked_up" from="Items/Twig" to="Player" method="_on_item_picked_up"]
