@@ -18,6 +18,10 @@ const time_death : float = 2.0
 var stopped : float = 0.0
 
 @onready var animation : AnimatedSprite2D = $AnimatedSprite2D
+@onready var label_leaf : Label = $Control/HBoxContainer/Leafs
+@onready var label_twig : Label = $Control/HBoxContainer/Twigs
+@onready var label_pine_cone : Label = $Control/HBoxContainer/Pine_cones
+
 
 var starting_position : Vector2 = Vector2(0, 0)
 ## Used with signal from bush
@@ -35,6 +39,7 @@ func _ready():
 	#animation.flip_h = true
 	starting_position = self.global_position
 	player_death.connect(GameManager._on_player_death)
+	update_labels()
 
 
 ## Movement processing
@@ -122,3 +127,10 @@ func _on_item_picked_up(_name : String):
 			print("Pine_cones: " + str(pine_cones))
 		_:
 			print("Null item")
+	update_labels()
+
+
+func update_labels():
+	label_leaf.text = str(leafs)
+	label_twig.text = str(twigs)
+	label_pine_cone.text = str(pine_cones)

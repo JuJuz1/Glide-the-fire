@@ -100,4 +100,26 @@ animation = &"run"
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -185.0
+offset_top = -142.0
+offset_right = -45.0
+offset_bottom = -96.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 88.0
+offset_bottom = 26.0
+
+[node name="Leafs" type="Label" parent="Control/HBoxContainer"]
+layout_mode = 2
+
+[node name="Twigs" type="Label" parent="Control/HBoxContainer"]
+layout_mode = 2
+
+[node name="Pine_cones" type="Label" parent="Control/HBoxContainer"]
+layout_mode = 2
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
