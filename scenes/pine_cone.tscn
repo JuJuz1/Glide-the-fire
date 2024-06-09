@@ -1,48 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://byi758gdcrwmr"]
+[gd_scene load_steps=4 format=3 uid="uid://byi758gdcrwmr"]
 
 [ext_resource type="Texture2D" uid="uid://bxtrswt3hufyn" path="res://graphics/twig.png" id="1_757dn"]
+[ext_resource type="PackedScene" uid="uid://dwx7wa53c32rn" path="res://scenes/animation_player_pickable.tscn" id="2_hear1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1007t"]
 radius = 7.0
-
-[sub_resource type="Animation" id="Animation_lytsq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -5)]
-}
-
-[sub_resource type="Animation" id="Animation_6uc0n"]
-resource_name = "hover"
-length = 1.5
-loop_mode = 1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1.5),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7fo7j"]
-_data = {
-"RESET": SubResource("Animation_lytsq"),
-"hover": SubResource("Animation_6uc0n")
-}
 
 [node name="Pine_cone" type="Area2D"]
 
@@ -54,8 +16,4 @@ shape = SubResource("CircleShape2D_1007t")
 texture = ExtResource("1_757dn")
 flip_h = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_7fo7j")
-}
-autoplay = "hover"
+[node name="AnimationPlayer" parent="." instance=ExtResource("2_hear1")]
