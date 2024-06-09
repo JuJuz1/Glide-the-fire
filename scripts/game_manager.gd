@@ -4,12 +4,14 @@ extends Node
 ## UI node and player
 var interface : Control = null
 var player : CharacterBody2D = null
+var items : Node = null
 
 func _ready():
 	# Set process mode to always, used for e.g. pausing the game
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	interface = get_node("/root/World/UI")
 	player = get_node("/root/World/Player")
+	items = get_node("/root/World/Items")
 
 
 ## Check for input
@@ -44,4 +46,10 @@ func _on_player_death():
 	# Position the player to the starting position and initialize all pickables, reset picked up items
 	player.position = player.starting_position
 	player.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
+	player.reset_picked_up_items()
+	# Reset items in the world
+	var pickables : Array[Node] = items.get_children()
+	for pickable in pickables:
+		pickable.visible = true
+	
 	interface.initialize_start()

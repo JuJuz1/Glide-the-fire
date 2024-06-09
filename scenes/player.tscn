@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://4oxacnipp3cb"]
+[gd_scene load_steps=15 format=3 uid="uid://4oxacnipp3cb"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_t1bgp"]
 [ext_resource type="Texture2D" uid="uid://vno1pk0wdrif" path="res://graphics/squirrel_glide(3).png" id="2_b4jp2"]
 [ext_resource type="Texture2D" uid="uid://cv6i31w1kk5sf" path="res://graphics/sqrl_5frames_1_transparent_flip_h.png" id="3_lkoag"]
+[ext_resource type="Texture2D" uid="uid://bp3fbsxd1xvgc" path="res://graphics/leaf.png" id="4_fn1dy"]
+[ext_resource type="Texture2D" uid="uid://bxtrswt3hufyn" path="res://graphics/twig.png" id="5_03nkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7rnh"]
 size = Vector2(15, 25)
@@ -108,18 +110,40 @@ offset_top = -142.0
 offset_right = -45.0
 offset_bottom = -96.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
-layout_mode = 0
-offset_right = 88.0
-offset_bottom = 26.0
+[node name="Numbers" type="HBoxContainer" parent="Control"]
+layout_mode = 2
+offset_left = 6.0
+offset_top = 13.0
+offset_right = 69.0
+offset_bottom = 36.0
+pivot_offset = Vector2(2, 0)
 
-[node name="Leafs" type="Label" parent="Control/HBoxContainer"]
+[node name="Leafs" type="Label" parent="Control/Numbers"]
 layout_mode = 2
 
-[node name="Twigs" type="Label" parent="Control/HBoxContainer"]
+[node name="Twigs" type="Label" parent="Control/Numbers"]
 layout_mode = 2
 
-[node name="Pine_cones" type="Label" parent="Control/HBoxContainer"]
+[node name="Pine_cones" type="Label" parent="Control/Numbers"]
 layout_mode = 2
+
+[node name="Icons" type="HBoxContainer" parent="Control"]
+layout_mode = 2
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 58.0
+offset_bottom = 3.0
+
+[node name="Leaf" type="Sprite2D" parent="Control/Icons"]
+position = Vector2(8, 8)
+texture = ExtResource("4_fn1dy")
+
+[node name="Twig" type="Sprite2D" parent="Control/Icons"]
+position = Vector2(24, 8)
+texture = ExtResource("5_03nkg")
+
+[node name="Pine_cone" type="Sprite2D" parent="Control/Icons"]
+position = Vector2(39, 8)
+texture = ExtResource("5_03nkg")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

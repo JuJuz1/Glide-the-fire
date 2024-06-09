@@ -18,9 +18,9 @@ const time_death : float = 2.0
 var stopped : float = 0.0
 
 @onready var animation : AnimatedSprite2D = $AnimatedSprite2D
-@onready var label_leaf : Label = $Control/HBoxContainer/Leafs
-@onready var label_twig : Label = $Control/HBoxContainer/Twigs
-@onready var label_pine_cone : Label = $Control/HBoxContainer/Pine_cones
+@onready var label_leaf : Label = $Control/Numbers/Leafs
+@onready var label_twig : Label = $Control/Numbers/Twigs
+@onready var label_pine_cone : Label = $Control/Numbers/Pine_cones
 
 
 var starting_position : Vector2 = Vector2(0, 0)
@@ -134,3 +134,10 @@ func update_labels():
 	label_leaf.text = str(leafs)
 	label_twig.text = str(twigs)
 	label_pine_cone.text = str(pine_cones)
+
+
+func reset_picked_up_items():
+	leafs = 0
+	twigs = 0
+	pine_cones = 0
+	update_labels()

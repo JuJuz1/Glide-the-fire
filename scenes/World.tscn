@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjdhlac7dut2t"]
+[gd_scene load_steps=11 format=3 uid="uid://bjdhlac7dut2t"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_7gref"]
 [ext_resource type="PackedScene" uid="uid://4oxacnipp3cb" path="res://scenes/player.tscn" id="1_e68gs"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bl4imgkf7t18r" path="res://scenes/leaf.tscn" id="5_6tiob"]
 [ext_resource type="PackedScene" uid="uid://n35s88snil3y" path="res://scenes/twig.tscn" id="6_mmmqy"]
 [ext_resource type="PackedScene" uid="uid://byi758gdcrwmr" path="res://scenes/pine_cone.tscn" id="7_b42xb"]
+[ext_resource type="Script" path="res://scripts/pickable.gd" id="8_sxr17"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d08yf"]
 texture = ExtResource("3_imdec")
@@ -1486,8 +1487,8 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Pine_cone" parent="Items" instance=ExtResource("7_b42xb")]
-visible = false
-position = Vector2(70, -28)
+position = Vector2(17, -135)
+script = ExtResource("8_sxr17")
 
 [connection signal="bush_entered" from="Bush" to="Player" method="_on_bush_entered"]
 [connection signal="bush_exited" from="Bush" to="Player" method="_on_bush_exited"]

@@ -19,5 +19,6 @@ func _ready():
 
 func _on_body_entered(body):
 	if body is Player:
-		self.queue_free()
+		#self.queue_free()
+		self.visible = false
 		picked_up.emit(self._name)
