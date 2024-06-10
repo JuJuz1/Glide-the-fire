@@ -8,6 +8,8 @@
 radius = 7.0
 
 [node name="Twig" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_a0es1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -19,3 +21,5 @@ texture = ExtResource("1_8etji")
 flip_h = true
 
 [node name="AnimationPlayer" parent="." instance=ExtResource("3_77c5n")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

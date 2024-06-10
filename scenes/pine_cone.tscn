@@ -1,19 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://byi758gdcrwmr"]
+[gd_scene load_steps=5 format=3 uid="uid://byi758gdcrwmr"]
 
-[ext_resource type="Texture2D" uid="uid://bxtrswt3hufyn" path="res://graphics/twig.png" id="1_757dn"]
+[ext_resource type="Texture2D" uid="uid://coisuf8dciko" path="res://graphics/pine_cone.png" id="1_ntqet"]
+[ext_resource type="Script" path="res://scripts/pickable.gd" id="1_tycsr"]
 [ext_resource type="PackedScene" uid="uid://dwx7wa53c32rn" path="res://scenes/animation_player_pickable.tscn" id="2_hear1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1007t"]
 radius = 7.0
 
 [node name="Pine_cone" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_tycsr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_1007t")
 
 [node name="Pine_cone" type="Sprite2D" parent="CollisionShape2D"]
-texture = ExtResource("1_757dn")
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("1_ntqet")
 flip_h = true
 
 [node name="AnimationPlayer" parent="." instance=ExtResource("2_hear1")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
