@@ -1483,6 +1483,8 @@ Tap to jump, hold to glide"
 position = Vector2(895, -292)
 
 [node name="TileMap" type="TileMap" parent="."]
+editor_description = "https://anokolisa.itch.io/sidescroller-pixelart-sprites-asset-pack-forest-16x16
+FREE FOR ANY USE"
 tile_set = SubResource("TileSet_f3xa1")
 format = 2
 layer_0/name = "Front"
