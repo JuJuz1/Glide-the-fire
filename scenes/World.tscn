@@ -1458,12 +1458,12 @@ script = ExtResource("1_7gref")
 [node name="Start" type="RichTextLabel" parent="UI"]
 auto_translate_mode = 1
 layout_mode = 0
-offset_left = 99.0
-offset_top = 77.0
-offset_right = 259.0
-offset_bottom = 105.0
+offset_left = 85.0
+offset_top = 79.0
+offset_right = 324.0
+offset_bottom = 109.0
 pivot_offset = Vector2(80, 14)
-text = "Press space to start"
+text = "Press space to start and jump"
 
 [node name="Player" parent="." instance=ExtResource("1_e68gs")]
 position = Vector2(-12, -35)

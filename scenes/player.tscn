@@ -111,33 +111,12 @@ offset_top = -142.0
 offset_right = -45.0
 offset_bottom = -96.0
 
-[node name="Icons" type="HBoxContainer" parent="Control"]
-layout_mode = 2
-offset_left = 5.0
-offset_top = -10.0
-offset_right = 60.0
-offset_bottom = -10.0
-
-[node name="Leaf" type="Sprite2D" parent="Control/Icons"]
-position = Vector2(8, 8)
-texture = ExtResource("4_fn1dy")
-
-[node name="Twig" type="Sprite2D" parent="Control/Icons"]
-position = Vector2(22, 8)
-texture = ExtResource("5_03nkg")
-
-[node name="Pine_cone" type="Sprite2D" parent="Control/Icons"]
-position = Vector2(38, 8)
-scale = Vector2(0.67, 0.67)
-texture = ExtResource("6_0bmef")
-
 [node name="Numbers" type="HBoxContainer" parent="Control"]
 custom_minimum_size = Vector2(50, 5)
-layout_mode = 1
-offset_left = 4.0
-offset_top = 1.0
-offset_right = 67.0
-offset_bottom = 24.0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 74.0
+offset_bottom = 25.0
 
 [node name="Leafs" type="Label" parent="Control/Numbers"]
 layout_mode = 2
@@ -147,5 +126,26 @@ layout_mode = 2
 
 [node name="Pine_cones" type="Label" parent="Control/Numbers"]
 layout_mode = 2
+
+[node name="Icons" type="HBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(50, 5)
+layout_mode = 2
+offset_left = 5.0
+offset_top = -10.0
+offset_right = 60.0
+offset_bottom = -5.0
+
+[node name="Leaf" type="Sprite2D" parent="Control/Icons"]
+position = Vector2(8, 8)
+texture = ExtResource("4_fn1dy")
+
+[node name="Twig" type="Sprite2D" parent="Control/Icons"]
+position = Vector2(24, 8)
+texture = ExtResource("5_03nkg")
+
+[node name="Pine_cone" type="Sprite2D" parent="Control/Icons"]
+position = Vector2(42, 8)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("6_0bmef")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

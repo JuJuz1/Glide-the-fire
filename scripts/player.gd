@@ -131,8 +131,8 @@ func _on_item_picked_up(_name : String):
 
 
 func update_labels():
-	label_leaf.text = str(leafs)
-	label_twig.text = str(twigs)
+	label_leaf.text = str(leafs) + " "
+	label_twig.text = str(twigs) + " "
 	label_pine_cone.text = str(pine_cones)
 
 
