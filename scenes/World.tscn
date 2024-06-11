@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bjdhlac7dut2t"]
+[gd_scene load_steps=18 format=3 uid="uid://bjdhlac7dut2t"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_7gref"]
 [ext_resource type="Material" uid="uid://d0xmyw5v6rky" path="res://tres_files/material_unshaded.tres" id="1_bkvij"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ch1xh13sd1jrl" path="res://scenes/fire.tscn" id="10_hq816"]
 [ext_resource type="AudioStream" uid="uid://dh3xydfmjymmm" path="res://sounds/fire_burn.wav" id="11_ipua6"]
 [ext_resource type="PackedScene" uid="uid://ctb4qwoc5swfq" path="res://scenes/area_finish.tscn" id="11_t5wmh"]
+[ext_resource type="AudioStream" uid="uid://bm4bfk1patld2" path="res://sounds/dramatic_music.wav" id="12_rp2sc"]
 
 [sub_resource type="FontFile" id="FontFile_tl7mx"]
 cache/0/16/0/ascent = 0.0
@@ -1568,7 +1569,7 @@ position = Vector2(269, -202)
 position = Vector2(439, -233)
 
 [node name="Leaf3" parent="Level/Items" instance=ExtResource("5_6tiob")]
-position = Vector2(918, -279)
+position = Vector2(918, -270)
 
 [node name="Leaf4" parent="Level/Items" instance=ExtResource("5_6tiob")]
 position = Vector2(1846, -210)
@@ -2975,6 +2976,13 @@ position = Vector2(3818, -92)
 stream = ExtResource("11_ipua6")
 autoplay = true
 max_distance = 300.0
+
+[node name="Audio_music" type="AudioStreamPlayer" parent="Level/Audio"]
+editor_description = "https://freesound.org/people/tyops/sounds/616226/?page=1#comments
+NO MENTION OF ATTRIBUTIONS"
+stream = ExtResource("12_rp2sc")
+volume_db = -2.0
+autoplay = true
 
 [node name="Area2D_Finish" parent="Level" instance=ExtResource("11_t5wmh")]
 position = Vector2(3860, -310)
