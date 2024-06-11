@@ -3,4 +3,4 @@
 android/
 
 # Export preset
-.cfg
+export_preset.cfg
