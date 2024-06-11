@@ -9,7 +9,7 @@ var items : Node = null
 func _ready():
 	# Set process mode to always, used for e.g. pausing the game
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
-	interface = get_node("/root/World/UI")
+	interface = get_node("/root/World/CanvasLayer/UI")
 	player = get_node("/root/World/Player")
 	items = get_node("/root/World/Level/Items")
 
@@ -44,10 +44,13 @@ func _input(_event):
 
 ## When the player dies
 func _on_player_death():
+	if get_tree().paused:
+		get_tree().paused = false
 	# Position the player to the starting position and initialize all pickables, reset picked up items
 	player.position = player.starting_position
 	player.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 	player.reset_picked_up_items()
+	player.panel_finish.visible = false
 	# Reset items in the world
 	var pickables : Array[Node] = items.get_children()
 	for pickable in pickables:

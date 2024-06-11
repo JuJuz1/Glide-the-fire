@@ -21,7 +21,8 @@ var stopped : float = 0.0
 @onready var label_leaf : Label = $Control/Numbers/Leafs
 @onready var label_twig : Label = $Control/Numbers/Twigs
 @onready var label_pine_cone : Label = $Control/Numbers/Pine_cones
-@onready var panel_pause : Panel = $Control/Panel
+@onready var panel_pause : Panel = $Control/Panel_pause
+@onready var panel_finish : Panel = $Control/Panel_finish
 
 
 var starting_position : Vector2 = Vector2(0, 0)
@@ -142,3 +143,23 @@ func reset_picked_up_items():
 	twigs = 0
 	pine_cones = 0
 	update_labels()
+
+
+## When finishing game
+func show_finish():
+	get_tree().paused = true
+	$Control/Panel_finish/RichTextLabel_leafs.text = "Leafs: " + str(leafs)
+	$Control/Panel_finish/RichTextLabel_twigs.text = "Twigs: " + str(twigs)
+	$Control/Panel_finish/RichTextLabel_pine_cones.text = "Pine cones: " + str(pine_cones)
+	panel_finish.visible = true
+
+
+## Game finished restart button
+func _on_button_restart_pressed():
+	panel_finish.visible = false
+	player_death.emit()
+
+
+## Game finished quit button
+func _on_button_quit_pressed():
+	get_tree().quit()

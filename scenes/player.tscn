@@ -79,6 +79,9 @@ animations = [{
 }]
 
 [sub_resource type="FontFile" id="FontFile_8tp5p"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -164,7 +167,7 @@ position = Vector2(42, 8)
 scale = Vector2(0.67, 0.67)
 texture = ExtResource("6_0bmef")
 
-[node name="Panel" type="Panel" parent="Control"]
+[node name="Panel_pause" type="Panel" parent="Control"]
 visible = false
 material = ExtResource("7_2eygw")
 layout_mode = 0
@@ -172,7 +175,7 @@ offset_top = -15.0
 offset_right = 480.0
 offset_bottom = 255.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/Panel"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Panel_pause"]
 use_parent_material = true
 layout_mode = 0
 offset_left = 185.0
@@ -185,4 +188,77 @@ text = "Space -
 Jump/Glide
 R - restart"
 
+[node name="Panel_finish" type="Panel" parent="Control"]
+process_mode = 2
+auto_translate_mode = 1
+visible = false
+material = ExtResource("7_2eygw")
+layout_mode = 0
+offset_top = -15.0
+offset_right = 480.0
+offset_bottom = 255.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Panel_finish"]
+auto_translate_mode = 1
+use_parent_material = true
+layout_mode = 0
+offset_left = 136.0
+offset_top = 14.0
+offset_right = 338.0
+offset_bottom = 106.0
+text = "The squirrel survived
+thanks to you!
+The squirrel managed to collect:"
+
+[node name="RichTextLabel_leafs" type="RichTextLabel" parent="Control/Panel_finish"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 136.0
+offset_top = 107.0
+offset_right = 320.0
+offset_bottom = 131.0
+text = "Leafs:"
+
+[node name="RichTextLabel_twigs" type="RichTextLabel" parent="Control/Panel_finish"]
+auto_translate_mode = 1
+use_parent_material = true
+layout_mode = 0
+offset_left = 136.0
+offset_top = 127.0
+offset_right = 320.0
+offset_bottom = 151.0
+text = "Twigs:"
+
+[node name="RichTextLabel_pine_cones" type="RichTextLabel" parent="Control/Panel_finish"]
+auto_translate_mode = 1
+use_parent_material = true
+layout_mode = 0
+offset_left = 136.0
+offset_top = 147.0
+offset_right = 320.0
+offset_bottom = 171.0
+text = "Pine cones: "
+
+[node name="Button_restart" type="Button" parent="Control/Panel_finish"]
+auto_translate_mode = 1
+use_parent_material = true
+layout_mode = 0
+offset_left = 110.0
+offset_top = 195.0
+offset_right = 230.0
+offset_bottom = 245.0
+text = "Restart"
+
+[node name="Button_quit" type="Button" parent="Control/Panel_finish"]
+auto_translate_mode = 1
+use_parent_material = true
+layout_mode = 0
+offset_left = 251.0
+offset_top = 196.0
+offset_right = 371.0
+offset_bottom = 246.0
+text = "Quit"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Control/Panel_finish/Button_restart" to="." method="_on_button_restart_pressed"]
+[connection signal="pressed" from="Control/Panel_finish/Button_quit" to="." method="_on_button_quit_pressed"]

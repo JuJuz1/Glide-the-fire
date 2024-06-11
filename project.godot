@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Glide the fire"
+config/version="Prototype 1.0"
 run/main_scene="res://scenes/world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://graphics/icon.svg"
+config/icon="res://graphics/squirrel_glide(3).png"
 boot_splash/stretch/scale_mode="fractional"
 boot_splash/size/mode=0
 boot_splash/size/borderless=false
@@ -26,6 +27,8 @@ GameManager="*res://scripts/game_manager.gd"
 
 window/size/viewport_width=960
 window/size/viewport_height=540
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
 
 [input]
@@ -55,3 +58,4 @@ restart={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
