@@ -2950,25 +2950,25 @@ max_distance = 300.0
 position = Vector2(2847, -370)
 stream = ExtResource("11_ipua6")
 autoplay = true
-max_distance = 300.0
+max_distance = 250.0
 
 [node name="Audio_fire12" type="AudioStreamPlayer2D" parent="Level/Audio"]
 position = Vector2(2913, -262)
 stream = ExtResource("11_ipua6")
 autoplay = true
-max_distance = 300.0
+max_distance = 200.0
 
 [node name="Audio_fire13" type="AudioStreamPlayer2D" parent="Level/Audio"]
 position = Vector2(3132, -183)
 stream = ExtResource("11_ipua6")
 autoplay = true
-max_distance = 300.0
+max_distance = 250.0
 
 [node name="Audio_fire9" type="AudioStreamPlayer2D" parent="Level/Audio"]
 position = Vector2(3037, -352)
 stream = ExtResource("11_ipua6")
 autoplay = true
-max_distance = 300.0
+max_distance = 200.0
 
 [node name="Audio_fire10" type="AudioStreamPlayer2D" parent="Level/Audio"]
 position = Vector2(3818, -92)
