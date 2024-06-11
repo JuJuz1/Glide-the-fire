@@ -113,6 +113,7 @@ offset_bottom = -96.0
 
 [node name="Numbers" type="HBoxContainer" parent="Control"]
 custom_minimum_size = Vector2(50, 5)
+layout_mode = 0
 offset_left = 6.0
 offset_top = 2.0
 offset_right = 74.0

@@ -1,5 +1,4 @@
 ## Controlling the UI
-
 extends Control
 
 ## Pause menu panel

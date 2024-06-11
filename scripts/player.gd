@@ -96,7 +96,7 @@ func _on_timer_timeout():
 	# Hard to implement checking for gliding, very minor detail nonetheless
 	#if gliding:
 	print(str(Engine.get_process_frames()))
-	velocity.y += -100
+	velocity.y += -90
 
 
 ## When entering bush

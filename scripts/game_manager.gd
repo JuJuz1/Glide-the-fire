@@ -11,7 +11,7 @@ func _ready():
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	interface = get_node("/root/World/UI")
 	player = get_node("/root/World/Player")
-	items = get_node("/root/World/Items")
+	items = get_node("/root/World/Level/Items")
 
 
 ## Check for input
