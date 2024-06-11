@@ -185,12 +185,12 @@ use_parent_material = true
 layout_mode = 0
 offset_left = 185.0
 offset_top = 37.0
-offset_right = 306.0
+offset_right = 360.0
 offset_bottom = 126.0
 theme_override_fonts/normal_font = SubResource("FontFile_8tp5p")
 theme_override_font_sizes/normal_font_size = 16
-text = "Space - 
-Jump/Glide
+text = "Space/Left mouse 
+- Jump/Glide
 R - restart"
 
 [node name="Panel_finish" type="Panel" parent="Control"]

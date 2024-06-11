@@ -102,7 +102,7 @@ func _physics_process(delta):
 	if velocity.x == 0:
 		stopped += delta
 		if stopped > time_death:
-			print(stopped)
+			#print(stopped)
 			player_death.emit()
 		animation.stop()
 	else:
@@ -120,36 +120,29 @@ func _physics_process(delta):
 func _on_timer_timeout():
 	# Hard to implement checking for gliding, very minor detail nonetheless
 	#if gliding:
-	print(str(Engine.get_process_frames()))
 	velocity.y += -90
 
 
 ## When entering bush
 func _on_bush_entered():
 	in_bush = true
-	print("bush")
 
 
 ## Exiting bush
 func _on_bush_exited():
 	in_bush = false
 	$Timer.stop()
-	print("exit")
 
 
 ## When any item is picked up
 func _on_item_picked_up(_name : String):
-	print(_name)
 	match _name:
 		"Leaf":
 			leafs += 1
-			print("Leafs: " + str(leafs))
 		"Twig":
 			twigs += 1
-			print("Twigs: " + str(twigs))
 		"Pine_cone":
 			pine_cones += 1
-			print("Pine_cones: " + str(pine_cones))
 		_:
 			print("Null item")
 	update_labels()
