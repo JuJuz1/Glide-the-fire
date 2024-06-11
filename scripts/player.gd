@@ -17,13 +17,20 @@ const time_death : float = 2.0
 ## Variable for checking how long movement is stopped
 var stopped : float = 0.0
 
+## Animations
 @onready var animation : AnimatedSprite2D = $AnimatedSprite2D
+
+## UI
 @onready var label_leaf : Label = $Control/Numbers/Leafs
 @onready var label_twig : Label = $Control/Numbers/Twigs
 @onready var label_pine_cone : Label = $Control/Numbers/Pine_cones
 @onready var panel_pause : Panel = $Control/Panel_pause
 @onready var panel_finish : Panel = $Control/Panel_finish
 
+## Audio
+@onready var audio_wings : AudioStreamPlayer = $Audio_wings
+
+var audio_wings_played : bool = true
 
 var starting_position : Vector2 = Vector2(0, 0)
 ## Used with signal from bush
@@ -64,6 +71,9 @@ func _physics_process(delta):
 	if Input.is_action_pressed("interact") and not is_on_floor() and velocity.y > 0:
 		animation.stop()
 		animation.play("glide")
+		if not audio_wings_played and not audio_wings.playing:
+			audio_wings.play()
+			audio_wings_played = true
 		#gliding = true
 		if in_bush:
 			if $Timer.is_stopped():
@@ -71,9 +81,11 @@ func _physics_process(delta):
 			#velocity.y += -500
 		else:
 			velocity.y = GRAVITY_GLIDE * delta
+	
 	elif not is_on_floor(): # Add normal gravity and animation to jump
 		velocity.y += get_gravity().y * delta * GRAVITY_SCALE
 		animation.play("jump")
+		audio_wings_played = false
 	
 	# Check if player is stuck
 	if velocity.x == 0:
@@ -157,6 +169,7 @@ func show_finish():
 ## Game finished restart button
 func _on_button_restart_pressed():
 	panel_finish.visible = false
+	get_viewport().set_input_as_handled()
 	player_death.emit()
 
 

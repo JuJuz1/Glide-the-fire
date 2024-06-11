@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://4oxacnipp3cb"]
+[gd_scene load_steps=19 format=3 uid="uid://4oxacnipp3cb"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_t1bgp"]
 [ext_resource type="Texture2D" uid="uid://vno1pk0wdrif" path="res://graphics/squirrel_glide(3).png" id="2_b4jp2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bxtrswt3hufyn" path="res://graphics/twig.png" id="5_03nkg"]
 [ext_resource type="Texture2D" uid="uid://coisuf8dciko" path="res://graphics/pine_cone.png" id="6_0bmef"]
 [ext_resource type="Material" uid="uid://d0xmyw5v6rky" path="res://tres_files/material_unshaded.tres" id="7_2eygw"]
+[ext_resource type="AudioStream" uid="uid://brfhihb1el2vn" path="res://sounds/wing_flap.wav" id="8_24y6a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7rnh"]
 size = Vector2(10, 18)
@@ -122,6 +123,7 @@ animation = &"run"
 wait_time = 0.05
 
 [node name="Control" type="Control" parent="."]
+z_index = 15
 layout_mode = 3
 anchors_preset = 0
 offset_left = -185.0
@@ -258,6 +260,11 @@ offset_top = 196.0
 offset_right = 371.0
 offset_bottom = 246.0
 text = "Quit"
+
+[node name="Audio_wings" type="AudioStreamPlayer" parent="."]
+editor_description = "https://freesound.org/people/_stubb/sounds/389633/
+NO MENTION OF ATTRIBUTIONS"
+stream = ExtResource("8_24y6a")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Control/Panel_finish/Button_restart" to="." method="_on_button_restart_pressed"]

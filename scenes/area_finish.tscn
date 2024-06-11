@@ -3,10 +3,9 @@
 [ext_resource type="Script" path="res://scenes/area_finish.gd" id="1_mqb5c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lftuw"]
-size = Vector2(90, 1031)
+size = Vector2(60, 1031)
 
 [node name="Area2D_Finish" type="Area2D"]
-position = Vector2(3823, -396)
 script = ExtResource("1_mqb5c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
