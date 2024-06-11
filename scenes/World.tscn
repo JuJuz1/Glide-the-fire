@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ch1xh13sd1jrl" path="res://scenes/fire.tscn" id="10_hq816"]
 [ext_resource type="AudioStream" uid="uid://dh3xydfmjymmm" path="res://sounds/fire_burn.wav" id="11_ipua6"]
 [ext_resource type="PackedScene" uid="uid://ctb4qwoc5swfq" path="res://scenes/area_finish.tscn" id="11_t5wmh"]
-[ext_resource type="AudioStream" uid="uid://bm4bfk1patld2" path="res://sounds/dramatic_music.wav" id="12_rp2sc"]
+[ext_resource type="AudioStream" uid="uid://beca1s0tboqsg" path="res://sounds/dramatic_music.mp3" id="12_0wnnn"]
 
 [sub_resource type="FontFile" id="FontFile_tl7mx"]
 cache/0/16/0/ascent = 0.0
@@ -2980,7 +2980,7 @@ max_distance = 300.0
 [node name="Audio_music" type="AudioStreamPlayer" parent="Level/Audio"]
 editor_description = "https://freesound.org/people/tyops/sounds/616226/?page=1#comments
 NO MENTION OF ATTRIBUTIONS"
-stream = ExtResource("12_rp2sc")
+stream = ExtResource("12_0wnnn")
 volume_db = -2.0
 autoplay = true
 
