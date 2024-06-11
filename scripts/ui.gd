@@ -12,7 +12,7 @@ func _ready():
 ## Remove start label vanishing it slowly
 func remove_start():
 	var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT).set_parallel(true)
-	tween.tween_property($Start, "modulate:a", 0, 1.25)
+	tween.tween_property($Start, "modulate:a", 0, 2)
 	#tween.tween_property($Start, "scale", Vector2(0, 0), 2)
 
 

@@ -58,6 +58,8 @@ animations = [{
 }]
 
 [node name="Fire" type="Area2D"]
+editor_description = "https://opengameart.org/content/pixel-fire
+NO MENTION OF ATTRIBUTIONS"
 script = ExtResource("1_mqwre")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -66,6 +68,6 @@ shape = SubResource("CircleShape2D_3xxjd")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = ExtResource("2_fqekg")
 sprite_frames = SubResource("SpriteFrames_3yxj2")
-frame_progress = 0.91008
+frame_progress = 0.664031
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

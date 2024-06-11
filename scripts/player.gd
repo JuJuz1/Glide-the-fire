@@ -21,6 +21,7 @@ var stopped : float = 0.0
 @onready var label_leaf : Label = $Control/Numbers/Leafs
 @onready var label_twig : Label = $Control/Numbers/Twigs
 @onready var label_pine_cone : Label = $Control/Numbers/Pine_cones
+@onready var panel_pause : Panel = $Control/Panel
 
 
 var starting_position : Vector2 = Vector2(0, 0)

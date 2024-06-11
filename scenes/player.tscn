@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://4oxacnipp3cb"]
+[gd_scene load_steps=18 format=3 uid="uid://4oxacnipp3cb"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_t1bgp"]
 [ext_resource type="Texture2D" uid="uid://vno1pk0wdrif" path="res://graphics/squirrel_glide(3).png" id="2_b4jp2"]
@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bp3fbsxd1xvgc" path="res://graphics/leaf.png" id="4_fn1dy"]
 [ext_resource type="Texture2D" uid="uid://bxtrswt3hufyn" path="res://graphics/twig.png" id="5_03nkg"]
 [ext_resource type="Texture2D" uid="uid://coisuf8dciko" path="res://graphics/pine_cone.png" id="6_0bmef"]
+[ext_resource type="Material" uid="uid://d0xmyw5v6rky" path="res://tres_files/material_unshaded.tres" id="7_2eygw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7rnh"]
-size = Vector2(15, 25)
+size = Vector2(10, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ewfrs"]
 atlas = ExtResource("2_b4jp2")
@@ -77,13 +78,27 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="FontFile" id="FontFile_8tp5p"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/19/0/ascent = 0.0
+cache/0/19/0/descent = 0.0
+cache/0/19/0/underline_position = 0.0
+cache/0/19/0/underline_thickness = 0.0
+cache/0/19/0/scale = 1.0
+
 [node name="Player" type="CharacterBody2D"]
 process_mode = 4
+editor_description = "https://opengameart.org/content/pixel-squirrel
+NO MENTION OF ATTRIBUTIONS"
 collision_layer = 2
 script = ExtResource("1_t1bgp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, -0.500004)
+position = Vector2(9.53674e-06, 1.00001)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_g7rnh")
 
@@ -148,5 +163,26 @@ texture = ExtResource("5_03nkg")
 position = Vector2(42, 8)
 scale = Vector2(0.67, 0.67)
 texture = ExtResource("6_0bmef")
+
+[node name="Panel" type="Panel" parent="Control"]
+visible = false
+material = ExtResource("7_2eygw")
+layout_mode = 0
+offset_top = -15.0
+offset_right = 480.0
+offset_bottom = 255.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Panel"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 185.0
+offset_top = 37.0
+offset_right = 306.0
+offset_bottom = 126.0
+theme_override_fonts/normal_font = SubResource("FontFile_8tp5p")
+theme_override_font_sizes/normal_font_size = 16
+text = "Space - 
+Jump/Glide
+R - restart"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

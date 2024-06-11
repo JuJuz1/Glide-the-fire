@@ -19,6 +19,7 @@ func _input(_event):
 	# PC ESCAPE
 	if Input.is_action_just_pressed("pause") and player.process_mode == Node.PROCESS_MODE_INHERIT:
 		get_tree().paused = not get_tree().paused
+		player.panel_pause.visible = not player.panel_pause.visible
 		#get_tree().reload_current_scene()
 	
 	# Starting the game
