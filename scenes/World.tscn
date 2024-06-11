@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjdhlac7dut2t"]
+[gd_scene load_steps=17 format=3 uid="uid://bjdhlac7dut2t"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_7gref"]
 [ext_resource type="Material" uid="uid://d0xmyw5v6rky" path="res://tres_files/material_unshaded.tres" id="1_bkvij"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://4j2rpky654pj" path="res://scenes/bush_big.tscn" id="9_kvqps"]
 [ext_resource type="Texture2D" uid="uid://cc5c5h3et73te" path="res://graphics/up_and_down_colorchange.png" id="9_sfaau"]
 [ext_resource type="PackedScene" uid="uid://ch1xh13sd1jrl" path="res://scenes/fire.tscn" id="10_hq816"]
+[ext_resource type="AudioStream" uid="uid://dh3xydfmjymmm" path="res://sounds/fire_burn.wav" id="11_ipua6"]
 [ext_resource type="PackedScene" uid="uid://ctb4qwoc5swfq" path="res://scenes/area_finish.tscn" id="11_t5wmh"]
 
 [sub_resource type="FontFile" id="FontFile_tl7mx"]
@@ -1539,7 +1540,7 @@ Space/Left mouse"
 position = Vector2(-423, -59)
 
 [node name="Player" parent="." instance=ExtResource("1_e68gs")]
-position = Vector2(3203, -188)
+position = Vector2(360, -51)
 
 [node name="TileMap" type="TileMap" parent="."]
 editor_description = "https://anokolisa.itch.io/sidescroller-pixelart-sprites-asset-pack-forest-16x16
@@ -2892,6 +2893,88 @@ position = Vector2(2283, -31)
 rotation = 0.613031
 collision_layer = 0
 collision_mask = 2
+
+[node name="Audio" type="Node" parent="Level"]
+
+[node name="Audio_fire" type="AudioStreamPlayer2D" parent="Level/Audio"]
+editor_description = "https://freesound.org/people/Vurca/sounds/189212/?page=1#comments
+NO MENTION OF ATTRIBUTIONS"
+position = Vector2(584, -22)
+stream = ExtResource("11_ipua6")
+autoplay = true
+max_distance = 300.0
+
+[node name="Audio_fire2" type="AudioStreamPlayer2D" parent="Level/Audio"]
+position = Vector2(1458, -21)
+stream = ExtResource("11_ipua6")
+autoplay = true
+max_distance = 300.0
+
+[node name="Audio_fire3" type="AudioStreamPlayer2D" parent="Level/Audio"]
+position = Vector2(1564, -202)
+stream = ExtResource("11_ipua6")
+autoplay = true
+max_distance = 300.0
+
+[node name="Audio_fire4" type="AudioStreamPlayer2D" parent="Level/Audio"]
+position = Vector2(1984, -244)
+stream = ExtResource("11_ipua6")
+autoplay = true
+max_distance = 300.0
+
+[node name="Audio_fire11" type="AudioStreamPlayer2D" parent="Level/Audio"]
+position = Vector2(2048, -135)
+stream = ExtResource("11_ipua6")
+autoplay = true
+max_distance = 300.0
+
+[node name="Audio_fire5" type="AudioStreamPlayer2D" parent="Level/Audio"]
+position = Vector2(2254, -22)
+stream = ExtResource("11_ipua6")
+autoplay = true
+max_distance = 300.0
+
+[node name="Audio_fire6" type="AudioStreamPlayer2D" parent="Level/Audio"]
+position = Vector2(2533, -26)
+stream = ExtResource("11_ipua6")
+autoplay = true
+max_distance = 300.0
+
+[node name="Audio_fire7" type="AudioStreamPlayer2D" parent="Level/Audio"]
+position = Vector2(2844, -58)
+stream = ExtResource("11_ipua6")
+autoplay = true
+max_distance = 300.0
+
+[node name="Audio_fire8" type="AudioStreamPlayer2D" parent="Level/Audio"]
+position = Vector2(2847, -370)
+stream = ExtResource("11_ipua6")
+autoplay = true
+max_distance = 300.0
+
+[node name="Audio_fire12" type="AudioStreamPlayer2D" parent="Level/Audio"]
+position = Vector2(2913, -262)
+stream = ExtResource("11_ipua6")
+autoplay = true
+max_distance = 300.0
+
+[node name="Audio_fire13" type="AudioStreamPlayer2D" parent="Level/Audio"]
+position = Vector2(3132, -183)
+stream = ExtResource("11_ipua6")
+autoplay = true
+max_distance = 300.0
+
+[node name="Audio_fire9" type="AudioStreamPlayer2D" parent="Level/Audio"]
+position = Vector2(3037, -352)
+stream = ExtResource("11_ipua6")
+autoplay = true
+max_distance = 300.0
+
+[node name="Audio_fire10" type="AudioStreamPlayer2D" parent="Level/Audio"]
+position = Vector2(3818, -92)
+stream = ExtResource("11_ipua6")
+autoplay = true
+max_distance = 300.0
 
 [node name="Area2D_Finish" parent="Level" instance=ExtResource("11_t5wmh")]
 position = Vector2(3860, -310)

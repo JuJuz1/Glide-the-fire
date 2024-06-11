@@ -17,7 +17,7 @@ const time_death : float = 2.0
 ## Variable for checking how long movement is stopped
 var stopped : float = 0.0
 
-## Animations
+## Animation
 @onready var animation : AnimatedSprite2D = $AnimatedSprite2D
 
 ## UI
@@ -27,9 +27,10 @@ var stopped : float = 0.0
 @onready var panel_pause : Panel = $Control/Panel_pause
 @onready var panel_finish : Panel = $Control/Panel_finish
 
-## Audio
+## Audio effects
 @onready var audio_wings : AudioStreamPlayer = $Audio_wings
 
+## Used to not overlap audio
 var audio_wings_played : bool = true
 
 var starting_position : Vector2 = Vector2(0, 0)
@@ -160,6 +161,7 @@ func reset_picked_up_items():
 ## When finishing game
 func show_finish():
 	get_tree().paused = true
+	# Could be done better
 	$Control/Panel_finish/RichTextLabel_leafs.text = "Leafs: " + str(leafs)
 	$Control/Panel_finish/RichTextLabel_twigs.text = "Twigs: " + str(twigs)
 	$Control/Panel_finish/RichTextLabel_pine_cones.text = "Pine cones: " + str(pine_cones)
