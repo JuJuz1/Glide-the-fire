@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://4oxacnipp3cb"]
+[gd_scene load_steps=22 format=3 uid="uid://4oxacnipp3cb"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_t1bgp"]
 [ext_resource type="Texture2D" uid="uid://vno1pk0wdrif" path="res://graphics/squirrel_glide(3).png" id="2_b4jp2"]
@@ -8,9 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://coisuf8dciko" path="res://graphics/pine_cone.png" id="6_0bmef"]
 [ext_resource type="Material" uid="uid://d0xmyw5v6rky" path="res://tres_files/material_unshaded.tres" id="7_2eygw"]
 [ext_resource type="AudioStream" uid="uid://brfhihb1el2vn" path="res://sounds/wing_flap.wav" id="8_24y6a"]
+[ext_resource type="AudioStream" uid="uid://dhjx1hbxldsbm" path="res://sounds/item_pickup.wav" id="9_q8ts0"]
+[ext_resource type="AudioStream" uid="uid://j16h7n8pidl8" path="res://sounds/grass_run.mp3" id="10_mlh4h"]
+[ext_resource type="AudioStream" uid="uid://gact1tvpsr0k" path="res://sounds/wood_run.mp3" id="11_n2r3r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7rnh"]
-size = Vector2(10, 18)
+size = Vector2(10, 19)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ewfrs"]
 atlas = ExtResource("2_b4jp2")
@@ -102,7 +105,7 @@ collision_layer = 2
 script = ExtResource("1_t1bgp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(9.53674e-06, 1.00001)
+position = Vector2(-0.499995, 1.00001)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_g7rnh")
 
@@ -265,6 +268,19 @@ text = "Quit"
 editor_description = "https://freesound.org/people/_stubb/sounds/389633/
 NO MENTION OF ATTRIBUTIONS"
 stream = ExtResource("8_24y6a")
+
+[node name="Audio_item_pickup" type="AudioStreamPlayer" parent="."]
+editor_description = "https://freesound.org/people/el_boss/sounds/665182/"
+stream = ExtResource("9_q8ts0")
+volume_db = -5.0
+
+[node name="Audio_grass" type="AudioStreamPlayer" parent="."]
+editor_description = "https://freesound.org/people/Ali_6868/sounds/384860/"
+stream = ExtResource("10_mlh4h")
+
+[node name="Audio_wood" type="AudioStreamPlayer" parent="."]
+editor_description = "https://pixabay.com/sound-effects/footsteps-on-wooden-floor-6803/"
+stream = ExtResource("11_n2r3r")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Control/Panel_finish/Button_restart" to="." method="_on_button_restart_pressed"]

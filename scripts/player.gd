@@ -29,6 +29,9 @@ var stopped : float = 0.0
 
 ## Audio effects
 @onready var audio_wings : AudioStreamPlayer = $Audio_wings
+@onready var audio_item_pickup = $Audio_item_pickup
+@onready var audio_grass = $Audio_grass
+@onready var audio_wood = $Audio_wood
 
 ## Used to not overlap audio
 var audio_wings_played : bool = true
@@ -56,6 +59,13 @@ func _ready():
 func _physics_process(delta):
 	if is_on_floor():
 		animation.play("run")
+		# Player on wood, branches only below (higher in 2D view) approx. -30
+		if self.global_position.y < -20:
+			if not audio_wood.playing:
+				audio_wood.play()
+		else: # On floor/grass
+			if not audio_grass.playing:
+				audio_grass.play()
 	
 	# Jumping
 	if Input.is_action_just_pressed("interact") and is_on_floor():
@@ -143,6 +153,7 @@ func _on_item_picked_up(_name : String):
 		_:
 			print("Null item")
 	update_labels()
+	audio_item_pickup.play()
 
 
 func update_labels():
