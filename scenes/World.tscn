@@ -1504,6 +1504,9 @@ physics_layer_0/collision_mask = 3
 sources/1 = SubResource("TileSetAtlasSource_d08yf")
 
 [node name="World" type="Node2D"]
+editor_description = "Debugging with phone:
+C:\\Users\\%USER%\\AppData\\Local\\Android\\Sdk\\platform-tools
+cmd: adb tcpip 5555"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 z_index = 5
