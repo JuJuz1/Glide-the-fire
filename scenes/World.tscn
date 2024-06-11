@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bjdhlac7dut2t"]
+[gd_scene load_steps=17 format=3 uid="uid://bjdhlac7dut2t"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_7gref"]
 [ext_resource type="Material" uid="uid://d0xmyw5v6rky" path="res://tres_files/material_unshaded.tres" id="1_bkvij"]
@@ -14,58 +14,6 @@
 [ext_resource type="AudioStream" uid="uid://dh3xydfmjymmm" path="res://sounds/fire_burn.wav" id="11_ipua6"]
 [ext_resource type="PackedScene" uid="uid://ctb4qwoc5swfq" path="res://scenes/area_finish.tscn" id="11_t5wmh"]
 [ext_resource type="AudioStream" uid="uid://beca1s0tboqsg" path="res://sounds/music.mp3" id="12_0wnnn"]
-
-[sub_resource type="FontFile" id="FontFile_tl7mx"]
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/2/0/ascent = 0.0
-cache/0/2/0/descent = 0.0
-cache/0/2/0/underline_position = 0.0
-cache/0/2/0/underline_thickness = 0.0
-cache/0/2/0/scale = 1.0
-cache/0/50/0/ascent = 0.0
-cache/0/50/0/descent = 0.0
-cache/0/50/0/underline_position = 0.0
-cache/0/50/0/underline_thickness = 0.0
-cache/0/50/0/scale = 1.0
-cache/0/25/0/ascent = 0.0
-cache/0/25/0/descent = 0.0
-cache/0/25/0/underline_position = 0.0
-cache/0/25/0/underline_thickness = 0.0
-cache/0/25/0/scale = 1.0
-cache/0/1/0/ascent = 0.0
-cache/0/1/0/descent = 0.0
-cache/0/1/0/underline_position = 0.0
-cache/0/1/0/underline_thickness = 0.0
-cache/0/1/0/scale = 1.0
-cache/0/20/0/ascent = 0.0
-cache/0/20/0/descent = 0.0
-cache/0/20/0/underline_position = 0.0
-cache/0/20/0/underline_thickness = 0.0
-cache/0/20/0/scale = 1.0
-cache/0/17/0/ascent = 0.0
-cache/0/17/0/descent = 0.0
-cache/0/17/0/underline_position = 0.0
-cache/0/17/0/underline_thickness = 0.0
-cache/0/17/0/scale = 1.0
-cache/0/18/0/ascent = 0.0
-cache/0/18/0/descent = 0.0
-cache/0/18/0/underline_position = 0.0
-cache/0/18/0/underline_thickness = 0.0
-cache/0/18/0/scale = 1.0
-cache/0/19/0/ascent = 0.0
-cache/0/19/0/descent = 0.0
-cache/0/19/0/underline_position = 0.0
-cache/0/19/0/underline_thickness = 0.0
-cache/0/19/0/scale = 1.0
-cache/0/21/0/ascent = 0.0
-cache/0/21/0/descent = 0.0
-cache/0/21/0/underline_position = 0.0
-cache/0/21/0/underline_thickness = 0.0
-cache/0/21/0/scale = 1.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d08yf"]
 texture = ExtResource("3_imdec")
@@ -1534,8 +1482,6 @@ offset_top = -34.0
 offset_right = 376.0
 offset_bottom = 86.0
 pivot_offset = Vector2(80, 14)
-theme_override_fonts/normal_font = SubResource("FontFile_tl7mx")
-theme_override_font_sizes/normal_font_size = 17
 text = "Jump on branches and collect materials for a new home
 Tap to jump, hold to glide
 PC: Space/Left mouse
